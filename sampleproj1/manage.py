@@ -1,23 +1,12 @@
 #!/usr/bin/env python
-"""
-Django's command-line utility for administrative tasks.
-This is a wrapper that delegates to the real manage.py in sampleproj1.
-"""
+"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 
+
 def main():
     """Run administrative tasks."""
-    # Add the project directory to sys.path
-    project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sampleproj1')
-    sys.path.insert(0, project_dir)
-    
-    # Change current working directory to the project directory
-    os.chdir(project_dir)
-    
-    # Set the settings module if not already set
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'study_platform.settings')
-    
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -27,6 +16,7 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
 
 if __name__ == '__main__':
     main()

@@ -1,11 +1,17 @@
 # Django
 *.pyc
 __pycache__/
-db.sqlite3
-media/
-static_root/
-.env
+sampleproj1/db.sqlite3
+sampleproj1/media/
+sampleproj1/static_root/
+sampleproj1/.env
+.venv/
+venv/
+env/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Project root files to exclude if any
+# e.g., local logs or temporary files
