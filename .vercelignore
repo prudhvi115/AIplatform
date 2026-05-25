@@ -1,0 +1,6 @@
+venv/
+.sampleproj1.env
+sampleproj1/db.sqlite3
+sampleproj1/media/
+sampleproj1/static_root/
+node_modules/
