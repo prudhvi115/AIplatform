@@ -32,9 +32,17 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = [host.strip() for host in config(
-    'ALLOWED_HOSTS', default='127.0.0.1,localhost,.vercel.app'
-).split(',') if host.strip()]
+# Allow Vercel and local hosts
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'ai-platform-olive-xi.vercel.app',
+    '*.vercel.app',
+    '.vercel.app',
+]
+# Support custom ALLOWED_HOSTS via environment variable
+_env_hosts = config('ALLOWED_HOSTS', default='').split(',') if config('ALLOWED_HOSTS', default='') else []
+ALLOWED_HOSTS.extend([host.strip() for host in _env_hosts if host.strip()])
 
 
 # Application definition
